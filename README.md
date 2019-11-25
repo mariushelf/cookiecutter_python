@@ -25,5 +25,5 @@ poetry run pre-commit install
 
 # License
 
-[MIT](https://choosealicense.com/licenes/mit/)
+[MIT](https://choosealicense.com/licenses/mit/)
 
