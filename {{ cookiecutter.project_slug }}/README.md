@@ -6,6 +6,10 @@
 {{ cookiecutter.project_short_description }}
 
 # License
-
-{{ cookiecutter.open_source_license }}
+{% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
+{% if is_open_source %}
+[{{ cookiecutter.open_source_license }}](https://choosealicense.com/licenses/{{ cookiecutter.open_source_license|lower }})
+{% else %}
+Not open source.
+{% endif %}
 
