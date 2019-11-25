@@ -7,6 +7,9 @@ to create a python package with
 * [pre-commit](https://pre-commit.com) hooks for black and flake8
 * pytest dependency.
 
+Inspired by [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
+
+
 # Usage
 
 ```bash
@@ -19,4 +22,8 @@ git init
 poetry install
 poetry run pre-commit install
 ```
+
+# License
+
+[MIT](https://choosealicense.com/licenes/mit/)
 
