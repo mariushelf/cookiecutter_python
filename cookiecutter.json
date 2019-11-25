@@ -1,0 +1,11 @@
+{
+  "full_name": "Marius Helf",
+  "email": "helfsmarius@gmail.com",
+  "github_username": "mariushelf",
+  "project_name": "Python Boilerplate",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+  "pypi_username": "{{ cookiecutter.github_username }}",
+  "version": "0.0.1"
+}
+
