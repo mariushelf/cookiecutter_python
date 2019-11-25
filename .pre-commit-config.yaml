@@ -1,0 +1,14 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+      - id: black
+
+  - repo: https://github.com/PYCQA/flake8
+    rev: 3.7.9
+    hooks:
+      - id: flake8
+        exclude: ^.venv
+default_language_version:
+    python: python3.7
+
