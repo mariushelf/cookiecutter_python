@@ -1,10 +1,11 @@
 # About
 
-A simple cookiecutter to create a python package with
+A simple [cookiecutter](https://github.com/cookiecutter/cookiecutter)
+to create a python package with
 
 * [Poetry](https://poetry.eustace.io/) dependency management
 * [pre-commit](https://pre-commit.com) hooks for black and flake8
-* pytest dependency
+* pytest dependency.
 
 # Usage
 
