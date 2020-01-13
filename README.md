@@ -4,7 +4,7 @@ A simple [cookiecutter](https://github.com/cookiecutter/cookiecutter)
 to create a python package with
 
 * [Poetry](https://poetry.eustace.io/) dependency management
-* [pre-commit](https://pre-commit.com) hooks for black and flake8
+* [pre-commit](https://pre-commit.com) hooks for black, flake8 and mypy
 * pytest dependency.
 
 Inspired by [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
