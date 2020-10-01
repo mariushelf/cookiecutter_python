@@ -165,4 +165,5 @@ data/**
 
 .~*
 poetry.lock
+.isort.cfg
 
