@@ -4,6 +4,10 @@ version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_short_description }}"
 authors = ["{{cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
 license = "{{ cookiecutter.open_source_license }}"
+readme = "README.md"
+homepage = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
+repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
+documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
 
 [tool.poetry.dependencies]
 python = "^3.8"
