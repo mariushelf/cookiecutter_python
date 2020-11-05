@@ -6,21 +6,12 @@
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.0.1",
-  "open_source_license": [
-    "Apache-2.0",
-    "BSD-2-Clause",
-    "BSD-3-Clause",
-    "BSD-4-Clause",
-    "GPL-2.0",
-    "GPL-2.0+",
-    "GPL-3.0",
-    "GPL-3.0+",
-    "LGPL-2.1",
-    "LGPL-2.1+",
-    "LGPL-3.0",
-    "LGPL-3.0+",
+  "license": [
     "MIT",
-	  "Not open source"
+    "Apache-2.0",
+    "GPL-3.0-only",
+    "GPL-3.0-or-later",
+	"Not open source"
   ]
 }
 
