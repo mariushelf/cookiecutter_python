@@ -13,8 +13,10 @@ documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecut
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.3"
-pre-commit = "^1.21"
+pytest = "^6.1"
+pre-commit = "^2.8"
+tox = "^3.20.1"
+twine = "^3.2.0"
 
 [tool.isort]
 multi_line_output = 3
