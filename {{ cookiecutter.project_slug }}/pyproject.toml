@@ -8,6 +8,13 @@ readme = "README.md"
 homepage = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
 repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
 documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: Implementation :: PyPy"
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
