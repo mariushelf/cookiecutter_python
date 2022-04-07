@@ -10,14 +10,15 @@ repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter
 documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
 classifiers = [
     "Development Status :: 4 - Beta",
-    "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: Implementation :: PyPy"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1"
@@ -30,6 +31,5 @@ profile = "black"
 multi_line_output = 3
 
 [build-system]
-requires = ["poetry>=1.0"]
-build-backend = "poetry.masonry.api"
-
+requires = ["poetry-core>=1.0"]
+build-backend = "poetry.core.masonry.api"
