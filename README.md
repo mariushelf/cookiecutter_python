@@ -13,6 +13,9 @@ to create a python package with
     
       `reduce(lambda x, y: x & y, filters)  # type: ignore`
 * [pytest](https://docs.pytest.org/en/latest/) dependency.
+* Github actions to run tests and release to PyPI
+* Makefile targets to test, build and release your code from your local machine
+* Extensive documentation on how to release your package to PyPI
 
 Inspired by [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
 
@@ -25,9 +28,16 @@ pip install --user cookiecutter poetry
 
 cookiecutter gh:mariushelf/cookiecutter_python
 cd <your_project_slug>
-git init
-poetry install
-poetry run pre-commit install
+# write your code and tests now
+
+# Then run your tests with different Python versions (using tox):
+make test
+
+# and publish your code
+make publish
+
+# Or push to Github and create a Github release which gets automatically published
+# to PyPI.
 ```
 
 # License
