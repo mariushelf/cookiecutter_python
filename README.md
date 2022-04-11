@@ -1,7 +1,14 @@
-# About
+# Cookiecutter Python
 
 A simple [cookiecutter](https://github.com/cookiecutter/cookiecutter)
-to create a python package with
+for any Python package.
+
+Easily publish to PyPI from your local machine or automated via Github actions.
+
+Automated linting and testing, locally and on Github.
+
+
+# Features
 
 * [Poetry](https://poetry.eustace.io/) dependency management
 * [pre-commit](https://pre-commit.com) hooks for:
