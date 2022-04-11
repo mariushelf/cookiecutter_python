@@ -23,6 +23,9 @@ On every commit, some code formatting and checking tools are run by
 The test pipeline is configured in the
 [.pre-commit-config.yaml](.pre-commit-config.yaml).
 
+**Note:** you *must* run `poetry run pre-commit install` everytime you clone your
+git repository. Else, the pre-commit hooks won't be run automatically.
+
 
 ## Running tests locally
 
@@ -97,16 +100,18 @@ E.g., for version `1.2.3` the tag must be `v1.2.3` (note the `v`).
 
 ### Create a release and publish the package to PyPI
 
-1. update the version number in the [pyproject.toml](pyproject.toml)
-2. create a matching tag on your local machine and push it to the
+1. Make sure the `name` variable in your [pyproject.toml](pyproject.toml) is correct.
+   **This will be the name of your package on PyPI!**
+2. update the version number in the [pyproject.toml](pyproject.toml).
+3. create a matching tag on your local machine and push it to the
    Github repository:
    ```bash
    git tag v1.2.3
    git push --tags
    ```
-3. In [Github actions](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions)
+4. In [Github actions](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions)
    make sure that the test workflow succeeds.
-4. In the Github [release tab](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/releases)
+5. In the Github [release tab](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/releases)
    click "Draft a new release". Fill in the form. When you click publish,
    the `publish-to-pypi` workflow is run.
    
@@ -224,7 +229,7 @@ PyPI. In that case, specify the PyPI repo via `--extra-index-url`.
 
 For example:
 
-`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package`
+`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ {{ cookiecutter.project_slug }}`
 
 **Beware the
 [security implications](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)!**
