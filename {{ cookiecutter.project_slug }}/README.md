@@ -9,6 +9,9 @@
 
 Original repository: [https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}})
 
+TODO: This is an auto-generated README file. Make sure to adjust it to your needs,
+and remove sections that are not applicable for your software.
+
 
 # Linting and Testing
 
@@ -53,6 +56,12 @@ list in the `tests.yml` workflow file.
 
 You can upload the package either from your local machine via twine, or
 by using Github actions.
+
+The following instructions guide you through the process of releasing to the actual,
+official PyPI.
+
+Further down, there are instructions to release to the PyPI test server, or to custom
+Python Package indexes.
 
 
 ## Release with Github actions
@@ -141,6 +150,100 @@ Here are the necessary steps:
 
 1. update the version number in the [pyproject.toml](pyproject.toml)
 2. run `make publish`.
+
+
+# Using a custom package repository
+
+While testing the release process of a public package, it is a good idea to first
+release to the PyPI Test server.
+
+Sometimes, especially in corporate settings, it is necessary to upload packages to
+a custom, often private, package repository.
+
+## Releasing
+
+To release to a server other than the standard PyPI, you need to specify the respective
+repository URL when uploading.
+
+
+### Releasing to a custom repo with twine
+
+With twine, you can specify the repository URL via the `--repository-url` parameter.
+
+In the special case of the PyPI Test server, you can also specify
+`--repository testpypi`.
+
+```bash
+# for Test PyPI
+twine upload --repository testpypi dist/*
+
+# for any custom repository
+twine upload --repository-url <URL> dist/*
+```
+
+In the context of this project, you can modify the `publish` target in the
+[Makefile](Makefile).
+
+See also [Using TestPyPI](https://packaging.python.org/en/latest/guides/using-testpypi/).
+
+
+### Releasing to a custom repo with Github actions
+
+To release to a custom repo with Github actions, you can follow the same process
+as described above for the default PyPI. The only necessary change is adding a
+`repository_url` entry to the `publish-to-pypi.yaml` file:
+
+```yaml
+- name: Publish package to TestPyPI
+  uses: pypa/gh-action-pypi-publish@release/v1
+  with:
+    user: __token__
+    password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+    repository_url: https://test.pypi.org/legacy/
+```
+
+For use with Test PyPI you need an account and an API token from [test.pypi.org](https://test.pypi.org). Note that in the example above, that token is assumed to
+be stored in the `TEST_PYPI_API_TOKEN` secret in Github.
+
+See also [Advanced release management](https://github.com/marketplace/actions/pypi-publish#advanced-release-management)
+in the documentation of the `pypi-publish` Github action.
+
+
+## Installing from a custom package repository
+
+If you have uploaded your package to a custom repository, install tools such as
+pip and poetry won't find it by default. You need to configure them to use the
+custom repository.
+
+
+### Installing from a custom package repository with pip
+
+With pip, you need to specify it via the `--index-url` parameter. Often you want to
+install custom packages from the private repo, but public dependencies from the regular
+PyPI. In that case, specify the PyPI repo via `--extra-index-url`.
+
+For example:
+
+`pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package`
+
+**Beware the
+[security implications](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)!**
+
+
+### Installing from a custom package repository with poetry
+
+To install packages from a custom repository, add this to your `pyproject.toml`:
+
+```toml
+[[tool.poetry.source]]
+name = "foo"
+url = "https://test.pypi.org/simple/"
+secondary = true  # if True, poetry will also search the default PyPI repository
+default = true  # if True, poetry will never search the default PyPI repository
+```
+
+For advanced configuration and authentication, take a look at the
+[poetry documentation](https://python-poetry.org/docs/repositories/#install-dependencies-from-a-private-repository).
 
 # Contact
 
