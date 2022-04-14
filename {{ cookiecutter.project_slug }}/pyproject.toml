@@ -7,7 +7,7 @@ license = "{{ cookiecutter.license }}"
 readme = "README.md"
 homepage = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
 repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
-documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
+documentation = "https://{{ cookiecutter.project_slug }}.readthedocs.io"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3.7",
