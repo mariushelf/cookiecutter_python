@@ -20,11 +20,34 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 
+# documentation
+# Due to the way poetry (and readthedocs) handle package extras (dependencies),
+# the doc dependencies must by located here, and not as dev-dependencies.
+# Once poetry 1.2.0 is released, this can be solved more elegantly.
+myst-parser = {version="^0.17.0", optional=true}
+Sphinx = {version="^4.5.0", optional=true}
+sphinx-autobuild = {version="^2021.3.14", optional=true}
+sphinx-panels = {version="^0.6.0", optional=true}
+sphinx-rtd-theme = {version="^1.0.0", optional=true}
+sphinxcontrib-mermaid = {version="^0.7.1", optional=true}
+
 [tool.poetry.dev-dependencies]
 pytest = "^6.1"
 pre-commit = "^2.8"
 tox = "^3.20.1"
-twine = "^3.2.0"
+
+# deployment
+twine = "^4.0.0"
+
+[tool.poetry.extras]
+docs = [
+    "myst-parser",
+    'Sphinx',
+    'sphinx-autobuild',
+    'sphinx-panels',
+    'sphinx-rtd-theme',
+    'sphinx-contrib-mermaid'
+]
 
 [tool.isort]
 profile = "black"

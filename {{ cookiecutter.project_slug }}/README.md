@@ -1,8 +1,9 @@
 # {{ cookiecutter.project_name }}
 
-[![Tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/tests.yml/badge.svg)](https://github.com/mariushelf/bcdict/actions/workflows/tests.yml)
+[![Tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/tests.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}})
 [![PyPI version](https://badge.fury.io/py/{{ cookiecutter.project_slug }}.svg)](https://pypi.org/project/{{ cookiecutter.project_slug }}/)
+[![Documentation Status](https://readthedocs.org/projects/{{ cookiecutter.project_slug }}/badge/?version=latest)](https://{{ cookiecutter.project_slug }}.readthedocs.io/en/latest/?badge=latest)
 
 
 {{ cookiecutter.project_short_description }}
@@ -203,7 +204,9 @@ as described above for the default PyPI. The only necessary change is adding a
   uses: pypa/gh-action-pypi-publish@release/v1
   with:
     user: __token__
+    {% raw %}
     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+    {% endraw %}
     repository_url: https://test.pypi.org/legacy/
 ```
 
@@ -254,12 +257,3 @@ For advanced configuration and authentication, take a look at the
 
 {{ cookiecutter.full_name }} 
   ([{{ cookiecutter.email }}](mailto:{{ cookiecutter.email }}))
-
-
-# License
-{% set is_open_source = cookiecutter.license != 'Not open source' -%}
-{% if is_open_source %}
-{{ cookiecutter.license }} -- see [LICENSE](LICENSE)
-{% else %}
-Not open source -- see [LICENSE](LICENSE)
-{% endif %}
