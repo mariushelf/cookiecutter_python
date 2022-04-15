@@ -14,6 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath(".."))
+import {{ cookiecutter.project_slug }}  # noqa: E402
 
 
 # -- Project information -----------------------------------------------------
@@ -23,7 +24,8 @@ copyright = "{% now 'utc', '%Y' %}, {{ cookiecutter.full_name }}"
 author = "{{ cookiecutter.full_name }}"
 
 # The full version, including alpha/beta/rc tags
-release = "{{ cookiecutter.version }}"
+release = {{ cookiecutter.project_slug }}.__version__
+version = {{ cookiecutter.project_slug }}.__version__
 
 
 # -- General configuration ---------------------------------------------------
