@@ -43,7 +43,7 @@ To configure the Python versions under test, edit the [tox.ini](tox.ini).
 
 ## With Github actions
 
-After every push to Github, the [tests.yml](.github/workflows/tests.yml)
+After every push to Github, the [tests.yml](.github/workflows/cicd.yaml)
 workflow is run. It runs the tests in the [tests](tests) folder for a bunch
 of Python versions.
 
@@ -71,8 +71,8 @@ Python Package indexes.
 ## Release with Github actions
 
 To make a release via Github actions, you need to create a release in
-Github. When the release is published, the
-[publish-to-pypi.yaml](.github/workflows/publish-to-pypi.yaml) workflow
+Github. When the release is published, the build-n-publish job in the
+[cicd](.github/workflows/cicd.yaml) workflow
 is run.
 
 To create a release in Github you need to create a tag.

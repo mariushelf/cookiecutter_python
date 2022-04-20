@@ -47,7 +47,7 @@ docs = [
     'sphinx-autobuild',
     'sphinx-panels',
     'sphinx-rtd-theme',
-    'sphinx-contrib-mermaid'
+    'sphinxcontrib-mermaid'
 ]
 
 [tool.isort]
