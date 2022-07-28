@@ -1,5 +1,5 @@
-{# mark as 'raw' to prevent cookiecutter jinja from replacing the github variables #}
-{% raw %}
+{#- mark as 'raw' to prevent cookiecutter jinja from replacing the github variables -#}
+{%- raw -%}
 name: CI/CD
 
 on: # events that trigger our pipeline: push on any branch and release creation
@@ -28,9 +28,9 @@ jobs:
         poetry install
     - name: Run pytest
       run: |
-        {% endraw %}
+        {% endraw -%}
         poetry run pytest --cov-report=xml --cov={{ cookiecutter.project_slug }} tests
-        {% raw %}
+        {%- raw %}
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v2
       with:
@@ -43,28 +43,28 @@ jobs:
     if: github.event_name == 'release' && github.event.action == 'published'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.9
-      - name: Install poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          export PATH=$PATH:$HOME/.local/bin
-      - name: Check tag and version match
-        run: |
-          if [ "v`poetry version -s`" != "${{ github.ref_name }}" ]; then
-            echo Tag $GITHUB_REF does not match package version `poetry version -s`.
-            exit 1
-          else
-            echo Package version and tag match.
-          fi
-      - name: Build package
-        run: poetry build
-      - name: Publish package to Test PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
-{% endraw %}
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.9
+    - name: Install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        export PATH=$PATH:$HOME/.local/bin
+    - name: Check tag and version match
+      run: |
+        if [ "v`poetry version -s`" != "${{ github.ref_name }}" ]; then
+          echo Tag $GITHUB_REF does not match package version `poetry version -s`.
+          exit 1
+        else
+          echo Package version and tag match.
+        fi
+    - name: Build package
+      run: poetry build
+    - name: Publish package to Test PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
+{%- endraw %}

@@ -25,6 +25,10 @@ echo "✓ Cookiecutter executes successfully."
 
 cd test_project/my_project
 
+git add .
+poetry run pre-commit run --all
+echo "✓ Commit hooks installed and working."
+
 # check that the documentation builds without warnings
 make docs
 echo "✓ Documentation builds."

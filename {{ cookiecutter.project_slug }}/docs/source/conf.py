@@ -16,7 +16,6 @@ import sys
 sys.path.insert(0, os.path.abspath(".."))
 import {{ cookiecutter.project_slug }}  # noqa: E402
 
-
 # -- Project information -----------------------------------------------------
 
 project = "{{ cookiecutter.project_slug }}"

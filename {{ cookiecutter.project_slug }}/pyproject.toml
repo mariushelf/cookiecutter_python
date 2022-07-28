@@ -50,6 +50,13 @@ docs = [
     'sphinxcontrib-mermaid'
 ]
 
+[tool.pydocstyle]
+convention = "numpy"
+# D100: Missing docstring in public module
+# D104: Missing docstring in public package
+# D106: Missing docstring in public nested class
+add-ignore = "D100,D104,D106"
+
 [tool.isort]
 profile = "black"
 multi_line_output = 3
