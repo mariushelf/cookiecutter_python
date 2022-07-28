@@ -1,3 +1,5 @@
+import {{ cookiecutter.project_slug }}
+
 try:
     from importlib.metadata import version
 except ModuleNotFoundError:
