@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 .PHONY: docs
+TOX_ARGS?=
 
 install:
 	poetry install
@@ -12,7 +13,7 @@ clean_docs:
 	cd docs && make clean
 
 test: install
-	poetry run tox -p -o -r
+	poetry run tox -p -o -r -- $(TOX_ARGS)
 
 docs:
 	cd docs && poetry run make html

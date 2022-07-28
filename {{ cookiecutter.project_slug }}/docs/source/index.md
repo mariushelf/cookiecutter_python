@@ -29,11 +29,6 @@ LICENSE
 :column: col-lg-4 px-2 py-2
 :card:
 
-**[Getting Started](readme)**
-^^^
-README.md
-
----
 **[API Reference](_apidoc/{{ cookiecutter.project_slug }}.rst)**
 ^^^
 Full API Documentation
@@ -47,8 +42,4 @@ Full API Documentation
 **[Github](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})**
 ^^^
 [gh:{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
-:::
-
-(readme)=
-:::{include} README.md
 :::

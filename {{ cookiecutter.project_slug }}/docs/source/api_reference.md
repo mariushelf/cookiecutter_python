@@ -1,3 +1,6 @@
+---
+orphan: true
+---
 # API Reference
 ```{eval-rst}
 .. autosummary:: 

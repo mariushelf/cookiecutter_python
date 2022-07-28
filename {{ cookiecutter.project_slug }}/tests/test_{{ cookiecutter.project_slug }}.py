@@ -1,5 +1,8 @@
 import re
 
+import {{ cookiecutter.project_slug }}
+
+
 # TODO: implement your tests here!
 
 def test_reminder():
