@@ -8,7 +8,12 @@ build:
     post_create_environment:
     # Install poetry
     - curl -sSL https://install.python-poetry.org | python -
-    # Tell poetry to not use a virtual environment
-    - $HOME/.poetry/bin/poetry config virtualenvs.create false
-    # Install project's dependencies
-    - $HOME/.poetry/bin/poetry install
+    # export requirements
+    - $HOME/.poetry/bin/poetry export --with docs -o requirements.txt
+
+python:
+  system_packages: true
+  install:
+    - requirements: requirements.txt
+    - method: pip
+      path: .
