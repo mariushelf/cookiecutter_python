@@ -36,9 +36,13 @@ extensions = [
     "myst_parser",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinx.ext.doctest",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     "sphinx_panels",
+    "sphinxcontrib.mermaid",
 ]
 
 myst_enable_extensions = [

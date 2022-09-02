@@ -27,8 +27,19 @@ Ready-to-use documentation and api-docs pipeline.
   * [black](https://github.com/psf/black) - the uncompromising code formatter
   * [flake8](https://gitlab.com/pycqa/flake8) - checking code formatting and style
   * [mypy](http://mypy-lang.org/) - check code, find type errors
+  * [yamllint](http://www.yamllint.com/) - print warnings about
+    badly formatted yaml files
+  * [pydocstyle](http://www.pydocstyle.org/en/stable/index.html) - check
+    docstrings for syntax and consistency
 
 Inspired by [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
+
+# Requirements
+
+- This cookiecutter makes use of new features from Poetry 1.2.0 released on
+  2022-08-31. Make sure to follow the
+  [upgrade process](https://python-poetry.org/blog/announcing-poetry-1.2.0/)
+  if you are still running an older version of poetry.
 
 
 # Usage
@@ -59,3 +70,8 @@ make publish
 # Troubleshooting
 
 * mypy checking can find a lot of bugs without even running the code, but sometimes it is too strict. There are a lot of [things you can configure](https://mypy.readthedocs.io/en/latest/config_file.html), but if it's a one of on just one or two lines of your code, you can tell mypy to ignore that specific line by appending `#  type: ignore` to it.
+* The required version of poetry is 1.2.0. If you get problems regarding
+  poetry or the `pyproject.toml`, make sure to check your poetry version
+  and [update](https://python-poetry.org/blog/announcing-poetry-1.2.0/)
+  it if necessary.
+ 

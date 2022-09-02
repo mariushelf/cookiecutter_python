@@ -8,7 +8,7 @@ import {{ cookiecutter.project_slug }}
 def test_reminder():
     assert (
         False
-    ), "If this test runs it probably means that you have not written your own tests yet. Do it now!"
+    ), "If this test runs it probably means that you have not written your own tests yet 😱 Do it now!"
 
 
 def test_version_is_semver_string():

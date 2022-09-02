@@ -22,33 +22,26 @@ python = "^3.7"
 importlib-metadata = {version="^4.11.3", python="<3.8"}
 
 # documentation
-# Due to the way poetry (and readthedocs) handle package extras (dependencies),
-# the doc dependencies must by located here, and not as dev-dependencies.
-# Once poetry 1.2.0 is released, this can be solved more elegantly.
-myst-parser = {version="^0.17.0", optional=true}
-Sphinx = {version="^4.5.0", optional=true}
-sphinx-autobuild = {version="^2021.3.14", optional=true}
-sphinx-panels = {version="^0.6.0", optional=true}
-sphinx-rtd-theme = {version="^1.0.0", optional=true}
-sphinxcontrib-mermaid = {version="^0.7.1", optional=true}
+[tool.poetry.group.docs.dependencies]
+# Packages in this group won't be installed by pip,
+# but are installed by poetry by default.
+# So they are available in your dev environment,
+# but not in a production environment.
+myst-nb = "^0.16.0"
+myst-parser = "^0.18.0"
+Sphinx = "^4.5.0"
+sphinx-autobuild = "^2021.3.14"
+sphinx-panels = "^0.6.0"
+sphinx-rtd-theme = "^1.0.0"
+sphinxcontrib-mermaid = "^0.7.1"
 
-[tool.poetry.dev-dependencies]
-pytest = "^6.1"
-pre-commit = "^2.8"
-tox = "^3.20.1"
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1"
+pre-commit = "^2.20"
+tox = "^3.25.0"
 
 # deployment
 twine = "^4.0.0"
-
-[tool.poetry.extras]
-docs = [
-    "myst-parser",
-    'Sphinx',
-    'sphinx-autobuild',
-    'sphinx-panels',
-    'sphinx-rtd-theme',
-    'sphinxcontrib-mermaid'
-]
 
 [tool.pydocstyle]
 convention = "numpy"
@@ -62,5 +55,5 @@ profile = "black"
 multi_line_output = 3
 
 [build-system]
-requires = ["poetry-core>=1.0"]
+requires = ["poetry-core>=1.1"]
 build-backend = "poetry.core.masonry.api"
