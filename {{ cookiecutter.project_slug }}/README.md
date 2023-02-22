@@ -1,6 +1,6 @@
 # {{ cookiecutter.project_name }}
 
-[![Tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/tests.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/tests.yml)
+[![Tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/tests.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/cicd.yaml)
 [![codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}})
 [![PyPI version](https://badge.fury.io/py/{{ cookiecutter.project_slug }}.svg)](https://pypi.org/project/{{ cookiecutter.project_slug }}/)
 [![Documentation Status](https://readthedocs.org/projects/{{ cookiecutter.project_slug }}/badge/?version=latest)](https://{{ cookiecutter.project_slug }}.readthedocs.io/en/latest/?badge=latest)
@@ -43,14 +43,14 @@ To configure the Python versions under test, edit the [tox.ini](tox.ini).
 
 ## With Github actions
 
-After every push to Github, the [tests.yml](.github/workflows/cicd.yaml)
+After every push to Github, the [cicd.yaml](.github/workflows/cicd.yaml)
 workflow is run. It runs the tests in the [tests](tests) folder for a bunch
 of Python versions.
 
 It also uploads the code coverage report to [codecov](https://codecov.io).
 
 **Note:** for private repositories you need to acquire a token from codecov
-and configure in in the `tests.yaml` workflow file and in Github secrets.
+and configure in the `cicd.yaml` workflow file and in Github secrets.
 
 To configure which Python versions are tested, edit the `python-version`
 list in the `tests.yml` workflow file.
@@ -78,7 +78,7 @@ is run.
 To create a release in Github you need to create a tag.
 
 For this project it is necessary that the tag matches the version number.
-E.g., for version `1.2.3` the tag must be `v1.2.3` (note the `v`).
+E.g., for version `1.2.3` the tag must be `1.2.3`.
 
 ### Prerequisites
 
@@ -107,7 +107,7 @@ E.g., for version `1.2.3` the tag must be `v1.2.3` (note the `v`).
 3. create a matching tag on your local machine and push it to the
    Github repository:
    ```bash
-   git tag v1.2.3
+   git tag 1.2.3
    git push --tags
    ```
 4. In [Github actions](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions)
@@ -120,7 +120,7 @@ E.g., for version `1.2.3` the tag must be `v1.2.3` (note the `v`).
    publishes the package to
    [PyPI](https://pypi.org/project/{{ cookiecutter.project_slug }}/).
 
-## Upload from the local machine
+## Upload from the local machine (not recommended)
 
 [twine](https://twine.readthedocs.io/en/stable/) allows to upload a package
 from your local machine to PyPI.

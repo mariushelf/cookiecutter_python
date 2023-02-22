@@ -13,8 +13,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "pypy-3.7"]
-
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "pypy-3.7"
+          - "pypy-3.8"
+          - "pypy-3.9"
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -32,7 +38,7 @@ jobs:
         poetry run pytest --cov-report=xml --cov={{ cookiecutter.project_slug }} tests
         {%- raw %}
     - name: "Upload coverage to Codecov"
-      uses: codecov/codecov-action@v2
+      uses: codecov/codecov-action@v3
       with:
         fail_ci_if_error: true
 #        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
@@ -44,25 +50,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.9
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: 3.9
+        python-version: "3.10"
     - name: Install poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
         export PATH=$PATH:$HOME/.local/bin
     - name: Check tag and version match
       run: |
-        if [ "v`poetry version -s`" != "${{ github.ref_name }}" ]; then
-          echo Tag $GITHUB_REF does not match package version `poetry version -s`.
+        if [ "`poetry version -s`" != "${{ github.ref_name }}" ]; then
+          echo Tag ${{ github.ref_name }} does not match package version `poetry version -s`.
           exit 1
         else
           echo Package version and tag match.
         fi
     - name: Build package
       run: poetry build
-    - name: Publish package to Test PyPI
+    - name: Publish package to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
