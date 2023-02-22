@@ -26,18 +26,17 @@ echo "✓ Cookiecutter executes successfully."
 cd test_project/my_project
 
 git add .
-#poetry run pre-commit run --all
+poetry run pre-commit run --all
 echo "✓ Commit hooks installed and working."
 
 # check that the documentation builds without warnings
-#make docs
+make docs
 echo "✓ Documentation builds."
 
 # check that the tests pass (apart from the test_reminder which always fails)
 TOX_ARGS="-k 'not test_reminder'" make test
 
 # check that the test_reminder fails
-
 if TOX_ARGS="-k test_reminder" make test ; then
     echo 'test_reminder test does not fail.' >&2
     exit 1
