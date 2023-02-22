@@ -10,16 +10,15 @@ repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter
 documentation = "https://{{ cookiecutter.project_slug }}.readthedocs.io"
 classifiers = [
     "Development Status :: 4 - Beta",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: Implementation :: PyPy"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7"
-importlib-metadata = {version="^4.11.3", python="<3.8"}
+python = "^3.8"
 
 # documentation
 [tool.poetry.group.docs.dependencies]
@@ -38,7 +37,7 @@ sphinxcontrib-mermaid = "^0.7.1"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1"
 pre-commit = "^2.20"
-tox = "^3.25.0"
+tox = "^4.0.0"
 
 # deployment
 twine = "^4.0.0"

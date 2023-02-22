@@ -34,6 +34,7 @@ make docs
 echo "✓ Documentation builds."
 
 # check that the tests pass (apart from the test_reminder which always fails)
+poetry add --dev tox-gh-actions
 TOX_ARGS="-k 'not test_reminder'" make test
 
 # check that the test_reminder fails

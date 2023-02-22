@@ -8,16 +8,29 @@ on: # events that trigger our pipeline: push on any branch and release creation
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "pypy-3.7"
+          - "pypy-3.8"
+          - "pypy-3.9"
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
-        python-version: "3.10"
+        python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        pip install cookiecutter
+        pip install cookiecutter 
         curl -sSL https://install.python-poetry.org | python3 -
         export PATH=$PATH:$HOME/.local/bin
     - name: Run tests
+      env:
+        TOX_ENV: ${{ matrix.python-version }}
       run: ./tests/test.sh
