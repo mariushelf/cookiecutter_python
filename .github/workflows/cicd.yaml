@@ -1,0 +1,20 @@
+name: CI/CD
+
+on: # events that trigger our pipeline: push on any branch and release creation
+  push:
+  release:
+    types: [published]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: pip install cookiecutter
+    - name: Run tests
+      run: ./tests/test.sh

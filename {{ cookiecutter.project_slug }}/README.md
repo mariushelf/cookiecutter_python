@@ -1,6 +1,6 @@
 # {{ cookiecutter.project_name }}
 
-[![Tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/tests.yml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/cicd.yaml)
+[![Tests](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/cicd.yaml/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/cicd.yaml)
 [![codecov](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}})
 [![PyPI version](https://badge.fury.io/py/{{ cookiecutter.project_slug }}.svg)](https://pypi.org/project/{{ cookiecutter.project_slug }}/)
 [![Documentation Status](https://readthedocs.org/projects/{{ cookiecutter.project_slug }}/badge/?version=latest)](https://{{ cookiecutter.project_slug }}.readthedocs.io/en/latest/?badge=latest)
@@ -53,7 +53,7 @@ It also uploads the code coverage report to [codecov](https://codecov.io).
 and configure in the `cicd.yaml` workflow file and in Github secrets.
 
 To configure which Python versions are tested, edit the `python-version`
-list in the `tests.yml` workflow file.
+list in the `cicd.yaml` workflow file.
 
 
 # How to release to PyPI

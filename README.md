@@ -1,4 +1,6 @@
 # Cookiecutter Python
+[![Tests](https://github.com/mariushelf/cookiecutter_python/actions/workflows/cicd.yaml/badge.svg)](https://github.com/mariushelf/cookiecutter_python/actions/workflows/cicd.yaml)
+
 
 A simple [cookiecutter](https://github.com/cookiecutter/cookiecutter)
 for any Python package.
@@ -74,4 +76,3 @@ make publish
   poetry or the `pyproject.toml`, make sure to check your poetry version
   and [update](https://python-poetry.org/blog/announcing-poetry-1.2.0/)
   it if necessary.
- 
