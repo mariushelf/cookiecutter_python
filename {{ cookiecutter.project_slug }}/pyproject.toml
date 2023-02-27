@@ -34,13 +34,14 @@ sphinx-rtd-theme = "^1.0.0"
 sphinxcontrib-mermaid = "^0.7.1"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.1"
 pre-commit = "^3.0"
+pytest = "^7.1"
+pytest-cov = "^4.0.0"
 tox = "^4.0.0"
 
 [tool.ruff]
 select = [
-    "A",  # flake8-builtins
+#    "A",  # flake8-builtins
     "E",  # Flake8
     "F",  # Flake8
     "I",  # isort
