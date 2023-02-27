@@ -38,19 +38,28 @@ pytest = "^7.1"
 pre-commit = "^3.0"
 tox = "^4.0.0"
 
-# deployment
-twine = "^4.0.0"
+[tool.ruff]
+select = [
+    "A",  # flake8-builtins
+    "E",  # Flake8
+    "F",  # Flake8
+    "I",  # isort
+    "D",  # pydocstyle
+    "RUF",  # ruff specific rules
+]
+ignore = [
+    "D100",  # Missing docstring in public module
+    "D104",  # Missing docstring in public package
+    "D106",  # Missing docstring in public nested class
+    "E501",  # LineTooLong
+]
+target-version = "py37"
 
-[tool.pydocstyle]
-convention = "numpy"
-# D100: Missing docstring in public module
-# D104: Missing docstring in public package
-# D106: Missing docstring in public nested class
-add-ignore = "D100,D104,D106"
+[tool.ruff.per-file-ignores]
+"__init__.py" = [
+    "F401",  # UnusedImport
+]
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
 
 [build-system]
 requires = ["poetry-core>=1.1"]

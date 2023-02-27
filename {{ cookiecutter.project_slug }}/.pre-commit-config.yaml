@@ -11,23 +11,20 @@ repos:
   - id: yamllint
     args: [-d relaxed]
     verbose: true
-- repo: https://github.com/timothycrosley/isort
-  rev: 5.11.5
-  hooks:
-  - id: isort
-    additional_dependencies: [toml]
 - repo: https://github.com/psf/black
-  rev: 22.3.0
+  rev: 23.1.0
   hooks:
   - id: black
-- repo: https://github.com/PYCQA/flake8
-  rev: 4.0.1
-  hooks:
-  - id: flake8
-    exclude: ^.venv
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    # Ruff version.
+    rev: 'v0.0.252'
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
     files: ^{{ cookiecutter.project_slug }}\/.*\.py$
+    exclude: ^tests/
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v0.950
+  rev: v1.0.1
   hooks:
   - id: mypy
     # for args see https://mypy.readthedocs.io/en/stable/command_line.html
@@ -36,9 +33,3 @@ repos:
       --ignore-missing-imports,
       --allow-untyped-globals
     ]
-- repo: https://github.com/pycqa/pydocstyle
-  rev: 6.1.1
-  hooks:
-  - id: pydocstyle
-    exclude: ^tests/
-    additional_dependencies: [toml]

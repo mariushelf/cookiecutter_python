@@ -8,6 +8,26 @@ on: # events that trigger our pipeline: push on any branch and release creation
     types: [published]
 
 jobs:
+  lint:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - "3.9"
+          - "3.10"
+          - "3.11"
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install pre-commit
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -21,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -39,16 +59,26 @@ jobs:
         with:
           fail_ci_if_error: true
   #        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+      - name: Install tox, tox-gh
+        run: python -m pip install tox tox-gh
+      - name: Setup test suite
+        run: python -mtox r --notest
+      - name: Run test suite
+        run: python -mtox r --skip-pkg-install
+        env:
+          PYTEST_ADDOPTS: "-vv --durations=10"
   build-n-publish:
     environment: production
     name: Build and publish Python distributions to PyPI
-    needs: test
+    needs:
+      - test
+      - lint
     if: github.event_name == 'release' && github.event.action == 'published'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: "3.10"
       - name: Install poetry
