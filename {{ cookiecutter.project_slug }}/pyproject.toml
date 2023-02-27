@@ -54,7 +54,7 @@ ignore = [
     "D106",  # Missing docstring in public nested class
     "E501",  # LineTooLong
 ]
-target-version = "py37"
+target-version = "py39"
 
 [tool.ruff.per-file-ignores]
 "__init__.py" = [

@@ -25,14 +25,13 @@ Ready-to-use documentation and api-docs pipeline.
 * Test pipeline with [pytest](https://docs.pytest.org/en/latest/) 
   and [tox](https://tox.wiki/)
 * Linting and code check pipeline with [pre-commit](https://pre-commit.com), including:
-  * [isort](https://github.com/timothycrosley/isort) - sorts your imports for you, so you don't have to
   * [black](https://github.com/psf/black) - the uncompromising code formatter
-  * [flake8](https://gitlab.com/pycqa/flake8) - checking code formatting and style
+  * [ruff](https://github.com/charliermarsh/ruff) - all in one, super fast
+    linter written in rust. Combines functionality of flake8, isort,
+    pydocstyle and many other tools.
   * [mypy](http://mypy-lang.org/) - check code, find type errors
   * [yamllint](http://www.yamllint.com/) - print warnings about
     badly formatted yaml files
-  * [pydocstyle](http://www.pydocstyle.org/en/stable/index.html) - check
-    docstrings for syntax and consistency
 
 Inspired by [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
 
