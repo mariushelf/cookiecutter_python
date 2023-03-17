@@ -44,6 +44,6 @@ fi
 echo "✓ test_reminder test failed as expected."
 
 cd "${CURRENT_DIR}"
-rm -rf test_project
+#rm -rf test_project
 
 echo "✓ Cookiecutter project tested successfully. All good 🤩"
