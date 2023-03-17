@@ -76,5 +76,5 @@ convention = "numpy"
 
 
 [build-system]
-requires = ["poetry-core>=1.1"]
+requires = ["poetry-core>=1.4"]
 build-backend = "poetry.core.masonry.api"
