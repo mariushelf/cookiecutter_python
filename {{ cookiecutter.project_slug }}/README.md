@@ -86,15 +86,15 @@ E.g., for version `1.2.3` the tag must be `1.2.3`.
    [PyPI account settings](https://pypi.org/manage/account/).
    If you don't have a PyPI account yet, create one. *Do not close the
    page right away, you will never see the token again!*
-   
+
    **Note:** before you upload the package for the first time, you can
    only create a global api token with access to all your packages. It is
    *highly* recommended to replace it with a package-specific token after
    you have published your package for the first time.
-3. In the [Github repository settings](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/settings/environments),
+2. In the [Github repository settings](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/settings/environments),
    create a new environment named `production`. If you are the only
    contributor, you can leave all settings at the default.
-4. Under [Secrets -> actions](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/settings/secrets/actions),
+3. Under [Secrets -> actions](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/settings/secrets/actions),
    create a new secret named `PYPI_API_TOKEN` and copy the token from PyPI
    as value.
 
@@ -115,7 +115,7 @@ E.g., for version `1.2.3` the tag must be `1.2.3`.
 5. In the Github [release tab](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/releases)
    click "Draft a new release". Fill in the form. When you click publish,
    the `publish-to-pypi` workflow is run.
-   
+
    It checks that the tag matches the version number and then builds and
    publishes the package to
    [PyPI](https://pypi.org/project/{{ cookiecutter.project_slug }}/).
@@ -204,9 +204,9 @@ as described above for the default PyPI. The only necessary change is adding a
   uses: pypa/gh-action-pypi-publish@release/v1
   with:
     user: __token__
-    {% raw %}
+    {%- raw -%}
     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-    {% endraw %}
+    {%- endraw -%}
     repository_url: https://test.pypi.org/legacy/
 ```
 
@@ -255,5 +255,5 @@ For advanced configuration and authentication, take a look at the
 
 # Contact
 
-{{ cookiecutter.full_name }} 
-  ([{{ cookiecutter.email }}](mailto:{{ cookiecutter.email }}))
+{{ cookiecutter.author_name }}
+  ([{{ cookiecutter.author_email }}](mailto:{{ cookiecutter.author_email }}))

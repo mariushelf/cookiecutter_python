@@ -1,7 +1,7 @@
 {%- if cookiecutter.license == "MIT" -%}
 MIT License
 
-Copyright (c) {% now 'utc', '%Y' %} {{cookiecutter.full_name}}
+Copyright (c) {% now 'utc', '%Y' %} {{cookiecutter.author_name}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@ SOFTWARE.
 
 {%- elif "GPL-3.0" in cookiecutter.license -%}
 {{cookiecutter.project_name}}: {{cookiecutter.project_short_description}}
-Copyright (C) {% now 'utc', '%Y' %} {{cookiecutter.full_name}}
+Copyright (C) {% now 'utc', '%Y' %} {{cookiecutter.author_name}}
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 {%- elif cookiecutter.license == "Apache-2.0" -%}
-Copyright {% now 'utc', '%Y' %} {{cookiecutter.full_name}}
+Copyright {% now 'utc', '%Y' %} {{cookiecutter.author_name}}
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

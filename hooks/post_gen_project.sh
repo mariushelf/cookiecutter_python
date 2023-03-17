@@ -2,8 +2,8 @@
 set -e
 echo Initializing and configuring git...
 git init
-git config --local user.name "{{cookiecutter.full_name}}"
-git config --local user.email {{cookiecutter.email}}
+git config --local user.name "{{cookiecutter.author_name}}"
+git config --local user.email {{cookiecutter.author_email}}
 git remote add origin git@{{cookiecutter.project_slug}}.github.com:{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}.git
 echo Installing package dependencies locally...
 poetry install

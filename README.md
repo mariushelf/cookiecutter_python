@@ -22,7 +22,7 @@ Ready-to-use documentation and api-docs pipeline.
   [sphinx](https://www.sphinx-doc.org/) configuration with Markdown support
   ((almost) no more Restructured Text)
 * [Poetry](https://poetry.eustace.io/) dependency management
-* Test pipeline with [pytest](https://docs.pytest.org/en/latest/) 
+* Test pipeline with [pytest](https://docs.pytest.org/en/latest/)
   and [tox](https://tox.wiki/)
 * Linting and code check pipeline with [pre-commit](https://pre-commit.com), including:
   * [black](https://github.com/psf/black) - the uncompromising code formatter
