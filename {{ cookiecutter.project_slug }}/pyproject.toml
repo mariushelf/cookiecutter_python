@@ -71,6 +71,9 @@ ignore = [
 "__init__.py" = ["F401"]
 "tests/**" = ["S", "ANN"]
 
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
 
 [build-system]
 requires = ["poetry-core>=1.1"]
