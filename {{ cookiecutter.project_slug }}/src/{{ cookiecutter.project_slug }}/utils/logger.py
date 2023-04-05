@@ -10,7 +10,7 @@ def get_logger() -> logging.Logger:
     logger : logging.Logger
         Logger instance.
     """
-    logger = logging.getLogger("src")
+    logger = logging.getLogger("{{ cookiecutter.project_slug }}")
     logger.setLevel(logging.DEBUG)
 
     loglevel = os.environ.get("LOGLEVEL", "INFO")
