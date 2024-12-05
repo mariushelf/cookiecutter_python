@@ -55,3 +55,4 @@ notebooks/
 
 # project artefacts
 test_project
+.python-version
