@@ -4,6 +4,7 @@
 # * The documentation builds
 # * The test_reminder test fails as expected
 # * All other tests pass
+# * The main.py script executes successfully
 
 set -xe
 
@@ -25,9 +26,15 @@ echo "✅ Cookiecutter executes successfully."
 
 cd test_project/my_project
 
+poetry install
+
 git add .
 poetry run pre-commit run --all-files
-echo "✓ Commit hooks installed and working."
+echo "✅ Commit hooks installed and working."
+
+# check that we can run the project
+poetry run python -m my_project.main
+echo "✅ main.py script executes successfully."
 
 # check that the documentation builds without warnings
 make docs
