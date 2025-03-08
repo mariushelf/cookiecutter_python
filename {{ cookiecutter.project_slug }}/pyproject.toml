@@ -72,6 +72,7 @@ ignore = [
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
+ignore-decorators = ["typing.override"]
 
 
 [build-system]
