@@ -68,6 +68,27 @@ make publish
 # to PyPI.
 ```
 
+# Development
+
+## Running tests
+
+The CI/CD pipeline checks all aspects of the cookiecutter template, including
+the test that the template build, and that its own linting and tests pass.
+
+To run the tests locally, you can use the following command:
+
+```bash
+# run in current Python environment
+make test
+```
+
+```bash
+# run in all supported Python versions
+make test-all
+```
+
+
+
 # Troubleshooting
 
 * mypy checking can find a lot of bugs without even running the code, but sometimes it is too strict. There are a lot of [things you can configure](https://mypy.readthedocs.io/en/latest/config_file.html), but if it's a one of on just one or two lines of your code, you can tell mypy to ignore that specific line by appending `#  type: ignore` to it.
