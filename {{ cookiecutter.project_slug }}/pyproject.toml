@@ -30,7 +30,7 @@ pydantic-settings = "^2.0.0"
 # So they are available in your dev environment,
 # but not in a production environment.
 myst-parser = "^4.0.0"
-Sphinx = "^7.0.0|^8.0.0"
+Sphinx = "^8.0.0"
 sphinx-autobuild = "^2024.10.3"
 sphinx-rtd-theme = "^3.0.0"
 sphinxcontrib-mermaid = "^1.0.0"
