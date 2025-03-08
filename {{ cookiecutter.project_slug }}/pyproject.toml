@@ -39,7 +39,7 @@ sphinxcontrib-mermaid = "^1.0.0"
 pre-commit = "^4.0.0"
 pytest = "^8.0.0"
 pytest-cov = "^6.0.0"
-tox = "^4.0.0"
+tox = "^4.24.0"
 
 [tool.ruff.lint]
 select = [
