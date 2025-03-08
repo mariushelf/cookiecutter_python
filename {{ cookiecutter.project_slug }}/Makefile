@@ -13,7 +13,7 @@ clean_docs:
 	cd docs && make clean
 
 test: install
-	poetry run tox -o -r run-parallel -- -- $(TOX_ARGS)
+	poetry run tox -r run-parallel -- -- $(TOX_ARGS)
 
 docs:
 	cd docs && poetry run make html
