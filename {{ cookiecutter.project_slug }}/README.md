@@ -120,43 +120,6 @@ E.g., for version `1.2.3` the tag must be `1.2.3`.
    publishes the package to
    [PyPI](https://pypi.org/project/{{ cookiecutter.project_slug }}/).
 
-## Upload from the local machine (not recommended)
-
-[twine](https://twine.readthedocs.io/en/stable/) allows to upload a package
-from your local machine to PyPI.
-
-### Prerequisites
-
-You need a PyPI API token. See prerequisites for the Github actions above
-(you don't need to perform any actions on Github when using twine, so you
-only need to perform step 1).
-
-### Configuration
-
-The PyPI credentials must be configured either via a configuration file
-or via environment variables.
-See the [twine documentation](https://twine.readthedocs.io/en/stable/#configuration)
-for details.
-
-Since we are using an api token to authenticate with PyPI, the username
-must be set to `__token__`, and the password is the actual token.
-
-When using the PyPI test server, the repository url must be set to
-`https://test.pypi.org/legacy/`.
-
-### Usage
-
-The `publish` target in the [Makefile](Makefile) calls twine to upload
-a package to PyPI.
-
-**Note:** the upload command is deactivated by default to prevent accidental
-uploads. You need to manually uncomment it before the first release.
-
-Here are the necessary steps:
-
-1. update the version number in the [pyproject.toml](pyproject.toml)
-2. run `make publish`.
-
 
 # Using a custom package repository
 
@@ -170,27 +133,6 @@ a custom, often private, package repository.
 
 To release to a server other than the standard PyPI, you need to specify the respective
 repository URL when uploading.
-
-
-### Releasing to a custom repo with twine
-
-With twine, you can specify the repository URL via the `--repository-url` parameter.
-
-In the special case of the PyPI Test server, you can also specify
-`--repository testpypi`.
-
-```bash
-# for Test PyPI
-twine upload --repository testpypi dist/*
-
-# for any custom repository
-twine upload --repository-url <URL> dist/*
-```
-
-In the context of this project, you can modify the `publish` target in the
-[Makefile](Makefile).
-
-See also [Using TestPyPI](https://packaging.python.org/en/latest/guides/using-testpypi/).
 
 
 ### Releasing to a custom repo with Github actions
@@ -210,7 +152,8 @@ as described above for the default PyPI. The only necessary change is adding a
     repository_url: https://test.pypi.org/legacy/
 ```
 
-For use with Test PyPI you need an account and an API token from [test.pypi.org](https://test.pypi.org). Note that in the example above, that token is assumed to
+For use with Test PyPI you need an account and an API token from [test.pypi.org](https://test.pypi.org). 
+Note that in the example above, that token is assumed to
 be stored in the `TEST_PYPI_API_TOKEN` secret in Github.
 
 See also [Advanced release management](https://github.com/marketplace/actions/pypi-publish#advanced-release-management)

@@ -1,10 +1,10 @@
 {
   "author_name": "Joe Doe",
   "author_email": "joe@example.com",
-  "github_username": "joesgithub",
-  "project_name": "Python Boilerplate",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+  "github_username": "{{ cookiecutter.author_name.lower().replace(' ', '') }}",
+  "project_name": "{{ cookiecutter.author_name }}'s new project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_').replace('.', '_').replace('\\'', '') }}",
+  "project_short_description": "{{ cookiecutter.project_name }} is a Python project.",
   "version": "0.1.0",
   "license": [
     "MIT",
