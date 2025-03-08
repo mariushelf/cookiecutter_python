@@ -9,11 +9,12 @@
 set -xe
 
 CURRENT_DIR=$(pwd)
+PROJECT_DIR="test_project${TOX_ENV_NAME}"
 
-rm -rf test_project
+rm -rf $PROJECT_DIR
 
 cookiecutter --no-input --default-config \
-  -o test_project \
+  -o $PROJECT_DIR \
    . \
   author_name="Joe Doe" \
     author_email="joe@example.com" \
@@ -24,7 +25,7 @@ cookiecutter --no-input --default-config \
     license="MIT"
 echo "✅ Cookiecutter executes successfully."
 
-cd test_project/my_project
+cd $PROJECT_DIR/my_project
 
 poetry install
 
@@ -41,16 +42,10 @@ make docs
 echo "✅ Documentation builds."
 
 # check that the tests pass (apart from the test_reminder which always fails)
-TOX_ARGS="-k 'not test_reminder'" make test
-
-# check that the test_reminder fails
-if TOX_ARGS="-k test_reminder" make test ; then
-    echo 'test_reminder test does not fail.' >&2
-    exit 1
-fi
-echo "✅ test_reminder test failed as expected."
+make test
+echo "✅ The tests pass."
 
 cd "${CURRENT_DIR}"
-#rm -rf test_project
+rm -rf $PROJECT_DIR
 
 echo "✅ Cookiecutter project tested successfully. All good 🤩"

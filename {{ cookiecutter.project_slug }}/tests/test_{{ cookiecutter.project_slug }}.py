@@ -2,15 +2,6 @@ import re
 
 import {{ cookiecutter.project_slug }}
 
-# TODO: implement your tests here!
-
-
-def test_reminder():
-    """Reminder to write tests."""
-    assert False, (
-        "If this test runs it probably means that you have not written your own tests yet 😱 Do it now!"
-    )
-
 
 def test_version_is_semver_string():
     """Test that the version in pyproject.toml is a proper semantic version."""

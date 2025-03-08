@@ -1,7 +1,6 @@
 SHELL := /bin/bash
 
 .PHONY: docs
-TOX_ARGS?=
 
 install:
 	poetry install
@@ -13,7 +12,7 @@ clean_docs:
 	cd docs && make clean
 
 test: install
-	poetry run tox -r run-parallel -- -- $(TOX_ARGS)
+	poetry run pytest tests
 
 docs:
 	cd docs && poetry run make html
@@ -21,8 +20,3 @@ docs:
 
 build: docs
 	poetry build
-
-# deactivated by default to prevent accidental uploads
-publish: test clean build
-	echo "NOT uploading to PyPI. You need to uncomment the command in the Makefile."
-#	poetry run python -mtwine upload dist/* --verbose

@@ -1,0 +1,10 @@
+requires = ["tox>=4"]
+env_list = ["3.13", "3.12", "3.11", "3.10", "pypy3.10"]
+
+[env_run_base]
+description = "Test that the cookiecutter builds."
+deps = [
+    "cookiecutter"
+]
+allowlist_externals = ["make"]
+commands = [["make", { replace = "posargs", default = ["test"], extend = true }]]

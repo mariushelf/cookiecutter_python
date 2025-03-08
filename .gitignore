@@ -54,5 +54,5 @@ notebooks/
 .idea
 
 # project artefacts
-test_project
+test_project*
 .python-version

@@ -29,6 +29,4 @@ jobs:
         curl -sSL https://install.python-poetry.org | python3 -
         export PATH=$PATH:$HOME/.local/bin
     - name: Run tests
-      env:
-        TOX_ENV: ${{ matrix.python-version }}
       run: ./tests/test.sh
